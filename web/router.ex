@@ -20,8 +20,8 @@ defmodule Freezerburn.Router do
     resources "/items", ItemController
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Freezerburn do
-  #   pipe_through :api
-  # end
+  scope "/api", Freezerburn, as: :api do
+    pipe_through :api
+    resources "/items", Api.ItemController
+  end
 end
